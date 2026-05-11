@@ -6,6 +6,23 @@ This repository focuses only on the **recommendation generation component** and 
 
 ---
 
+## Architecture Overview
+
+![Evidence-Aware RAG-LLM Recommendation Architecture](docs/figures/architecture_overview.png)
+
+> Fig. 1. Overall architecture of the proposed evidence-aware RAG-LLM recommendation system for HVAC energy saving.
+
+The system consists of six sequential modules:
+
+1. **Optimization Results** — receives energy/comfort optimization outputs (optimal setpoints, predicted savings, comfort metrics, system states, constraints status)
+2. **Trigger Policy** — decision logic that determines whether a recommendation is needed based on trigger conditions (e.g., savings > τ, comfort risk, rule violations)
+3. **Query Constructor** — generates a contextual query from building/zone info, system state, optimization summary, constraints & goals, and time & environment
+4. **Evidence-Aware RAG Module** — retrieves Top-k documents from the HVAC Knowledge Base and reranks them by Relevance, Recency, Authority, Applicability, and Evidence quality
+5. **LLM Generator** — generates recommendations using the query, reranked evidence, optimization context, and constraints & goals
+6. **Recommendation Output** — produces actionable recommendations including recommended actions, expected savings, comfort impact, rationale with evidence citations, and references
+
+---
+
 ## Highlights
 
 - Rule-constrained action interpretation
@@ -93,6 +110,8 @@ The LLM does not directly decide the HVAC control action.
 │   └── examples/
 │       └── recommendation_evidence_aware_rag_llm_sample.csv
 ├── docs/
+│   ├── figures/
+│   │   └── architecture_overview.png
 │   ├── method_overview.md
 │   ├── dataset_description.md
 │   └── reproducibility.md
