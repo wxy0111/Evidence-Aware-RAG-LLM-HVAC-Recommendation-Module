@@ -1,0 +1,236 @@
+[
+  {
+    "id": "kb_001",
+    "category": "ventilation",
+    "title": "短時間換気の原則",
+    "conditions": {
+      "reason_type": ["ventilation_balance"],
+      "window_action": ["ventilate"]
+    },
+    "guidance": "短時間の換気は空気質を保ちながら空調負荷の増加を抑えるために有効である。長時間開放は不要であり、短く区切った換気のほうが快適さを保ちやすい。"
+  },
+  {
+    "id": "kb_002",
+    "category": "risk_hot_outdoor",
+    "title": "高温外気時の窓開放回避",
+    "conditions": {
+      "risk_flags": ["outdoor_too_hot_for_window_opening"]
+    },
+    "guidance": "外気温が室内より十分高い場合、窓開放は室内熱負荷を増やしやすい。そのため、窓を閉めたまま空調設定で調整するほうが室内環境を安定させやすい。"
+  },
+  {
+    "id": "kb_003",
+    "category": "risk_cold_outdoor",
+    "title": "低温外気時の窓開放回避",
+    "conditions": {
+      "risk_flags": ["outdoor_too_cold_for_window_opening"]
+    },
+    "guidance": "外気温が室内より大幅に低い場合、窓開放は冷気流入によって快適性を損ないやすい。窓を閉めた状態で制御するほうが安定した室内環境を保ちやすい。"
+  },
+  {
+    "id": "kb_004",
+    "category": "stability",
+    "title": "室内安定性の確保",
+    "conditions": {
+      "reason_type": ["indoor_stability"],
+      "window_action": ["close"]
+    },
+    "guidance": "室内環境の安定性を優先する場合は、急激な外気流入を避け、設定温度を一定範囲に保つことが望ましい。閉窓と温度維持は快適さを保ちやすい基本方針である。"
+  },
+  {
+    "id": "kb_005",
+    "category": "comfort_energy",
+    "title": "快適性と省エネの両立",
+    "conditions": {
+      "reason_type": ["comfort_energy_balance", "ventilation_balance", "indoor_stability", "safety_priority"]
+    },
+    "guidance": "省エネ提案では節電率だけでなく、利用者が無理なく受け入れられる快適さも重要である。節電効果と快適さの両立を説明すると提案の納得感が高まりやすい。"
+  },
+  {
+    "id": "kb_006",
+    "category": "temperature_step",
+    "title": "急激な設定変更の回避",
+    "conditions": {
+      "ac_switch": ["on", "off"]
+    },
+    "guidance": "設定温度を急激に変更すると快適性や運転安定性に影響を与えるため、段階的な変更が望ましい。穏やかな調整のほうが現実的な提案として受け入れられやすい。"
+  },
+  {
+    "id": "kb_007",
+    "category": "ventilation_balance",
+    "title": "換気と空調負荷の両立",
+    "conditions": {
+      "reason_type": ["ventilation_balance"],
+      "window_action": ["ventilate"],
+      "ac_switch": ["off", "on"]
+    },
+    "guidance": "換気を行う場合でも、短時間にとどめることで空気の入れ替えと空調負荷の抑制を両立しやすい。換気の目的と負荷抑制の理由を併記すると提案の理解が進みやすい。"
+  },
+  {
+    "id": "kb_008",
+    "category": "closed_window_cooling",
+    "title": "高外気時の閉窓維持",
+    "conditions": {
+      "window_action": ["close"],
+      "reason_type": ["indoor_stability", "comfort_energy_balance", "safety_priority"]
+    },
+    "guidance": "外気が室内より高温である場合は、窓を閉めて室内条件を安定させるほうが冷房効率を保ちやすい。閉窓は熱気流入の抑制という説明と組み合わせると分かりやすい。"
+  },
+  {
+    "id": "kb_009",
+    "category": "closed_window_heating",
+    "title": "低外気時の閉窓維持",
+    "conditions": {
+      "window_action": ["close"],
+      "reason_type": ["indoor_stability", "safety_priority"]
+    },
+    "guidance": "外気が室内よりかなり低い場合は、窓を閉めることで冷気流入を防ぎ、暖房負荷の増加を抑えやすい。快適さを保つ観点からも閉窓維持は説明しやすい方策である。"
+  },
+  {
+    "id": "kb_010",
+    "category": "temperature_up_cooling",
+    "title": "冷房時の設定温度引き上げ",
+    "conditions": {
+      "window_action": ["close", "ventilate"],
+      "ac_switch": ["on"]
+    },
+    "guidance": "冷房時には設定温度を少し高めに調整することで消費電力を抑えやすい。ただし、快適さを損なわない範囲での微調整として説明することが重要である。"
+  },
+  {
+    "id": "kb_011",
+    "category": "temperature_down_heating",
+    "title": "暖房時の過度な高温設定回避",
+    "conditions": {
+      "window_action": ["close"],
+      "ac_switch": ["on"]
+    },
+    "guidance": "暖房時に過度な高温設定を避けることは、エネルギー消費を抑えつつ室内環境を安定させるのに役立つ。設定値の意味を簡潔に示すと利用者が行動しやすい。"
+  },
+  {
+    "id": "kb_012",
+    "category": "ac_off_ventilation",
+    "title": "エアコン停止と短時間換気",
+    "conditions": {
+      "ac_switch": ["off"],
+      "window_action": ["ventilate"]
+    },
+    "guidance": "室内外条件が近い場合は、エアコンを止めて短時間換気することで、空気の入れ替えを行いながらエネルギー消費を抑えやすい。停止と換気の組み合わせは短時間であることを明示すると自然である。"
+  },
+  {
+    "id": "kb_013",
+    "category": "history_use",
+    "title": "類似履歴の補足説明",
+    "conditions": {
+      "reason_type": ["comfort_energy_balance", "ventilation_balance", "indoor_stability", "safety_priority"]
+    },
+    "guidance": "過去の類似条件が利用可能な場合は、その履歴を補足的に示すことで提案の納得感が高まりやすい。履歴は主結論ではなく補足説明として自然に添えるのが望ましい。"
+  },
+  {
+    "id": "kb_014",
+    "category": "history_style",
+    "title": "履歴表現の自然なつなぎ方",
+    "conditions": {
+      "reason_type": ["comfort_energy_balance", "ventilation_balance", "indoor_stability", "safety_priority"],
+      "ac_switch": ["on", "off"]
+    },
+    "guidance": "履歴に触れる場合は、『過去の似た条件でも』『これまでの近い条件では』のように自然につなぐと、押しつけがましさを避けつつ根拠を示しやすい。"
+  },
+  {
+    "id": "kb_015",
+    "category": "user_acceptance",
+    "title": "受け入れやすい提案文",
+    "conditions": {
+      "reason_type": ["comfort_energy_balance", "ventilation_balance", "indoor_stability", "safety_priority"],
+      "ac_switch": ["on", "off"]
+    },
+    "guidance": "提案文は命令調を強めすぎず、行動・理由・期待効果を自然につなぐほうが受け入れられやすい。短くても理由がある提案のほうが実行意図を高めやすい。"
+  },
+  {
+    "id": "kb_016",
+    "category": "saving_expression",
+    "title": "節電率の伝え方",
+    "conditions": {
+      "ac_switch": ["on", "off"],
+      "window_action": ["close", "ventilate", "open"]
+    },
+    "guidance": "節電率は期待効果として端的に伝えるのが望ましい。数値だけを並べるのではなく、『快適さを保ちやすく、約X%の節電が期待できます』のように行動と結び付けると理解されやすい。"
+  },
+  {
+    "id": "kb_017",
+    "category": "load_explanation",
+    "title": "空調負荷の説明",
+    "conditions": {
+      "reason_type": ["safety_priority", "indoor_stability", "comfort_energy_balance"],
+      "window_action": ["close"]
+    },
+    "guidance": "窓開閉や外気条件の説明では、『熱負荷が増えやすい』『冷気流入を抑えやすい』など、空調負荷の観点を簡潔に添えると根拠が伝わりやすい。"
+  },
+  {
+    "id": "kb_018",
+    "category": "air_quality",
+    "title": "空気質への配慮",
+    "conditions": {
+      "window_action": ["ventilate"],
+      "reason_type": ["ventilation_balance"]
+    },
+    "guidance": "換気提案では、省エネだけでなく空気の入れ替えという利点もある。空気質への配慮を短く補うと、換気の目的が伝わりやすい。"
+  },
+  {
+    "id": "kb_019",
+    "category": "stable_temperature",
+    "title": "安定した温度維持の意義",
+    "conditions": {
+      "window_action": ["close"],
+      "reason_type": ["indoor_stability", "comfort_energy_balance"]
+    },
+    "guidance": "安定した温度設定は、短期的な快適さだけでなく、空調運転のばらつきを抑える上でも有効である。設定を安定させる意味を一言補うと提案が納得されやすい。"
+  },
+  {
+    "id": "kb_020",
+    "category": "soft_style",
+    "title": "やわらかい文体の維持",
+    "conditions": {
+      "ac_switch": ["on", "off"],
+      "window_action": ["close", "ventilate", "open"]
+    },
+    "guidance": "提案文では『必ず』『完全に』『ぜひお試しください』のような強い表現を避けるほうが自然である。やわらかく説明することでユーザーの抵抗感を下げやすい。"
+  },
+  {
+    "id": "kb_021",
+    "category": "risk_expression",
+    "title": "リスクの自然な表現",
+    "conditions": {
+      "risk_flags": ["outdoor_too_hot_for_window_opening", "outdoor_too_cold_for_window_opening"]
+    },
+    "guidance": "リスクを説明する場合は、『快適さを保ちにくい』『空調負荷が増えやすい』のように自然な影響として伝えるほうが、過度に強い印象を与えずに済む。"
+  },
+  {
+    "id": "kb_022",
+    "category": "current_context",
+    "title": "現在状況の短い説明",
+    "conditions": {
+      "reason_type": ["comfort_energy_balance", "ventilation_balance", "indoor_stability", "safety_priority"]
+    },
+    "guidance": "提案文では現在の状況を長く説明しすぎず、行動理由に直結する部分だけを短く述べるのが望ましい。現在条件の説明は一文目の自然な接続に組み込むと読みやすい。"
+  },
+  {
+    "id": "kb_023",
+    "category": "history_limited_claim",
+    "title": "履歴根拠の控えめな主張",
+    "conditions": {
+      "reason_type": ["comfort_energy_balance", "ventilation_balance", "indoor_stability", "safety_priority"],
+      "window_action": ["close", "ventilate"]
+    },
+    "guidance": "履歴を使う場合でも、『同様の傾向が見られた』『近い条件でも節電が確認された』のように控えめに表現するのが望ましい。過度な一般化は避けるべきである。"
+  },
+  {
+    "id": "kb_024",
+    "category": "personalization",
+    "title": "個別化提案の考え方",
+    "conditions": {
+      "reason_type": ["comfort_energy_balance", "ventilation_balance", "indoor_stability", "safety_priority"],
+      "ac_switch": ["on", "off"]
+    },
+    "guidance": "同じ節電率であっても、現在状況や過去の近い条件を踏まえて説明することで、提案は個別化された印象を持ちやすい。個別化は結論を変えるのではなく、説明の納得感を高めるために用いる。"
+  }
+]
