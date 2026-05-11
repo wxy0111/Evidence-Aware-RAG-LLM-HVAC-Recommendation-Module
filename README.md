@@ -23,6 +23,57 @@ The system consists of six sequential modules:
 
 ---
 
+## Related Repositories
+
+This module is the **third and final stage** of the BI-TECH energy management pipeline. It depends on the outputs of the following two upstream repositories:
+
+### Stage 1 — RL-LSTM Energy Prediction
+> **[wxy0111/RL-LSTM-office-energy-prediction](https://github.com/wxy0111/RL-LSTM-office-energy-prediction)**
+
+A Bidirectional LSTM model enhanced with a DDPG-based reinforcement learning agent for real-time adaptive energy consumption prediction. This module produces the energy forecasts used by the optimization stage.
+
+- Input: Environmental sensor data (temperature, humidity, CO₂, illuminance, globe temperature, power)
+- Output: Predicted energy consumption per timestep (`lstm_model.pth`, `rl_actor.pth`, etc.)
+- Key results: CVRMSE improved by **23.3%**, MAPE reduced by **25.2%**
+
+### Stage 2 — Heuristic Optimization
+> **[wxy0111/Heuristic-optimization-office-energy](https://github.com/wxy0111/Heuristic-optimization-office-energy)**
+
+A multi-objective heuristic framework that uses the RL-LSTM predictions to determine optimal indoor temperature setpoints, balancing energy efficiency, thermal comfort (PMV), and behavioral adaptability.
+
+- Input: Pre-trained RL-LSTM model + real-time environmental data
+- Output: Optimal temperature setpoints + predicted savings per timestep
+- Key results: **12.87%** energy savings during working hours
+
+### Stage 3 — This Repository (RAG-LLM Recommendation)
+
+Takes the optimization results from Stage 2 as input and generates actionable, evidence-backed natural language energy-saving recommendations using a RAG-enhanced LLM pipeline.
+
+- Input: Optimization results (optimal setpoints, predicted savings, comfort metrics, system states)
+- Output: Actionable recommendations with expected savings, comfort impact, rationale, and references
+
+---
+
+## Full Pipeline
+
+```
+[Stage 1] RL-LSTM Energy Prediction
+    │
+    │  Predicted energy consumption per timestep
+    ▼
+[Stage 2] Heuristic Optimization
+    │
+    │  Optimal setpoints + predicted savings + comfort metrics
+    ▼
+[Stage 3] Evidence-Aware RAG-LLM Recommendation  ← This Repository
+    │
+    │  Actionable natural language recommendations
+    ▼
+     User / Building Management System
+```
+
+---
+
 ## Highlights
 
 - Rule-constrained action interpretation
